@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import {ref, defineProps} from 'vue';
-import type {EventItem} from "@/type";
-import type {PropType} from "vue";
-
+import {defineProps, PropType} from "vue";
+import {EventItem} from "@/type";
 
 const props = defineProps({
   event: {
@@ -14,18 +12,28 @@ const props = defineProps({
 
 <template>
   <div class="event-card">
-    <span>@{{ props.event.time }} on {{ props.event.date }}</span>
-    <h4>{{ props.event.title }}</h4>
+    <span> <b class="text-title">Category: </b> {{props.event.category}}</span>
+    <span><b class="text-title">Organized by</b> {{ props.event.organizer}}</span>
   </div>
 </template>
 
 <style scoped>
+
+.text-title {
+  opacity: 0.75;
+}
+
 .event-card {
   padding: 20px;
   width: 250px;
   cursor: pointer;
   border: 1px solid #39495c;
   margin-bottom: 18px;
+  font-size: 1rem;
+}
+
+.event-card span {
+  display: block;
 }
 
 .event-card:hover {

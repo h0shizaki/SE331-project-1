@@ -41,8 +41,11 @@ const events = ref<EventItem[]>([
 </script>
 
 <template>
+  <h1>Events For Good</h1>
+
   <main class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
+
   </main>
 </template>
 
