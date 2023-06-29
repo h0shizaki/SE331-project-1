@@ -11,8 +11,8 @@ const apiClient: AxiosInstance = axios.create({
         'Content-Type': 'application/json'
     }
 })
-const getEvent = (): Promise<AxiosResponse<EventItem[]>> => {
-    return apiClient.get<EventItem[]>('/events');
+const getEvent = (perPage: number = 2 , page: number = 1): Promise<AxiosResponse<EventItem[]>> => {
+    return apiClient.get<EventItem[]>(`/events?_limit=${perPage}&_page=${page}`);
 }
 
 const getEventById = (id: number): Promise<AxiosResponse<EventItem>> => {
