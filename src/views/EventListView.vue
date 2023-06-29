@@ -20,7 +20,6 @@ EventService.getEvent()
 
   <main class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
-
   </main>
 </template>
 

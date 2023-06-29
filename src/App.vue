@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import {RouterLink, RouterView} from 'vue-router';
 
 </script>
 
 <template>
   <header>
     <nav>
-      <RouterLink to="/">Home</RouterLink> |
-      <RouterLink to="/about">About</RouterLink> |
-      <RouterLink to="/category">Category</RouterLink> |
-      <RouterLink to="/student">Student List</RouterLink>
+      <RouterLink :to="{'name': 'EventList'}">Home</RouterLink>
+      |
+      <RouterLink :to="{'name': 'about'}">About</RouterLink>
+      |
+      <RouterLink :to="{'name':'category'}">Category</RouterLink>
+      |
+      <RouterLink :to="{'name': 'studentList'}">Student List</RouterLink>
     </nav>
   </header>
-  <RouterView />
+  <RouterView/>
 </template>
 
 <style scoped>
