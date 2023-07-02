@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {PropType} from "vue";
-import type {EventItem} from "@/type";
+
+import {useEventStore} from "@/stores/event";
+import {storeToRefs} from "pinia";
 
 
-defineProps({
-  event: {
-    type: Object as PropType<EventItem>
-  }
-})
+const store = useEventStore()
+const event = storeToRefs(store).event
+
+const id = event.value?.id
 </script>
 
 <template>

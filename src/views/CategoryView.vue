@@ -6,7 +6,7 @@ import EventService from "@/services/EventService";
 
 const events = ref<Array<EventItem>>([])
 
-EventService.getEvent()
+EventService.getEvent(100)
     .then(
         (res) => {
           events.value = res.data as EventItem[]
