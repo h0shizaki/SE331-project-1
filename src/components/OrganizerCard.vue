@@ -5,15 +5,18 @@ import {EventItem} from "@/type";
 const props = defineProps({
   event: {
     type: Object as PropType<EventItem>,
-    require: true
+    required: true
   }
 })
 </script>
 
 <template>
-  <div class="event-card">
-    <span> <b class="text-title">Category: </b> {{props.event.category}}</span>
-    <span><b class="text-title">Organized by</b> {{ props.event.organizer}}</span>
+  <div class="block cursor-pointer border border-green-800 bg-white rounded rounded-l mb-3 w-64 h-24 hover:border-green-500 hover:bg-gray-100 drop-shadow-lg" >
+    <div class="p-3 mb-2">
+      <b class="text-gray-400">Category: </b><span class="font-bold text-green-500 uppercase"> {{props.event.category}}</span><br>
+    <b class="text-gray-400">Organized by: </b><span class="font-bold text-green-500 uppercase"> {{ props.event.organizer}}</span><br>
+    </div>
+
   </div>
 </template>
 

@@ -28,9 +28,9 @@ function register() {
 </script>
 
 <template>
-  <div v-if="event">
-    <p>Register here</p>
-    <button @click="register">Register ME</button>
+  <div v-if="event" class="p-3 mt-2">
+    <p class="font-bold text-gray-600">Event Registration</p>
+    <button @click="register" class="bg-green-300 border border-green-800 rounded-full font-bold text-white p-2 mt-2 hover:bg-green-700 ">Register ME</button>
   </div>
 </template>
 

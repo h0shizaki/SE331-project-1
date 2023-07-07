@@ -11,7 +11,7 @@ const id = event.value?.id
 </script>
 
 <template>
-  <div v-if="event">
+  <div v-if="event" class="m-3 font-semibold text-gray-600">
     <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
     <p>{{event.description}}</p>
   </div>

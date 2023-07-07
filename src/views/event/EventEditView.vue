@@ -28,9 +28,9 @@ function edit() {
 </script>
 
 <template>
-  <div v-if="event">
-    <p>Edit here</p>
-    <button @click="edit">Update</button>
+  <div v-if="event" class="p-3 mt-2">
+    <p class="font-bold text-gray-600">Edit Event</p>
+    <button @click="edit" class="bg-green-300 border border-green-800 rounded-full font-bold text-white p-2 mt-2 hover:bg-green-700 ">Update</button>
   </div>
 </template>
 

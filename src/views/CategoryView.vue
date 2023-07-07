@@ -15,7 +15,8 @@ EventService.getEvent(100)
 </script>
 
 <template>
-  <h1>Events Category</h1>
+  <h1 class="text-green-700 font-bold text-2xl m-3" >Events Category</h1>
+
   <main class="events">
     <OrganizerCard v-for="event in events" :key="event.id" :event="event"></OrganizerCard>
   </main>

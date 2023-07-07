@@ -16,8 +16,8 @@ StudentService.getStudent()
 </script>
 
 <template>
-  <h1>Student List</h1>
-  <main class="events">
+  <h1 class="text-green-700 font-bold text-2xl m-3" >Student List</h1>
+  <main class="flex flex-col items-center">
     <StudentCard v-for="student in studentList" :key="student.id" :student="student"></StudentCard>
   </main>
 </template>
