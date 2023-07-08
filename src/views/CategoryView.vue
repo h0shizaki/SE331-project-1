@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import OrganizerCard from "@/components/OrganizerCard.vue";
 import {ref} from "vue";
-import {EventItem} from "@/type";
+import type {EventItem} from "@/type";
 import EventService from "@/services/EventService";
 
 const events = ref<Array<EventItem>>([])

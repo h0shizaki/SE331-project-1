@@ -59,18 +59,18 @@ const hasNextPage = computed(() => {
   <main class="flex flex-col items-center">
     <EventCard v-for="event in events" :key="event.id" :event="event"></EventCard>
     <div class="pagination">
-      <RouterLink :to="{'name': 'eventList', query: {page: page-1, perPage: eventPerPage }}" rel="prev" v-if="page != 1"
+      <RouterLink :to="{'name': 'eventList', query: {page: page-1, perPage: eventPerPage.toString() }}" rel="prev" v-if="page != 1"
                   id="page-prev">
         🔙 Prev Page
       </RouterLink>
       <select id="perPage" v-model="eventPerPage"
-              @change="() => {router.push({name: 'eventList', query: {page: page, perPage: eventPerPage } })}">
+              @change="() => {router.push({name: 'eventList', query: {page: page, perPage: eventPerPage.toString() } })}">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
-      <RouterLink :to="{'name': 'eventList', query: {page: page+1, perPage: eventPerPage }}" rel="next"
+      <RouterLink :to="{'name': 'eventList', query: {page: page+1, perPage: eventPerPage.toString() }}" rel="next"
                   v-if="hasNextPage" id="page-next">
         Next Page 🔜
       </RouterLink>

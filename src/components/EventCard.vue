@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import {ref, defineProps} from 'vue';
 import type {EventItem} from "@/type";
 import type {PropType} from "vue";
 
 
-const props = defineProps({
+defineProps({
   event: {
     type: Object as PropType<EventItem>,
     require: true
