@@ -109,7 +109,8 @@ const router = createRouter({
     }
   }
 })
-router.beforeEach( () => {
+router.beforeEach( (to, from, next) => {
+  document.title = "642115003 Kan Katpark"
   nProgress.start()
 })
 
