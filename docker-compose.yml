@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  web:
+    image: asterkan/compo-lab:latest
+    ports:
+      - 8001:80
