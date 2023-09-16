@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import OrganizerCard from "@/components/OrganizerCard.vue";
 import {ref} from "vue";
-import type {EventItem} from "@/type";
+import type {OrganzierItem} from "@/type";
 import EventService from "@/services/EventService";
 
-const events = ref<Array<EventItem>>([])
+const organizers = ref<Array<OrganzierItem>>([])
 
-EventService.getEvent(100)
+EventService.getOrganizers()
     .then(
         (res) => {
-          events.value = res.data as EventItem[]
+          organizers.value = res.data as OrganzierItem[]
         }
     )
 </script>
@@ -18,7 +18,7 @@ EventService.getEvent(100)
   <h1 class="text-green-700 font-bold text-2xl m-3" >Events Category</h1>
 
   <main class="events">
-    <OrganizerCard v-for="event in events" :key="event.id" :event="event"></OrganizerCard>
+    <OrganizerCard v-for="organizer in organizers" :key="organizer.id" :organizer="organizer"></OrganizerCard>
   </main>
 </template>
 
