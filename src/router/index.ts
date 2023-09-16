@@ -13,6 +13,8 @@ import nProgress from "nprogress";
 import EventService from "@/services/EventService";
 import {useEventStore} from "@/stores/event";
 import type {EventItem} from "@/type";
+import EventFormView from "@/views/EventFormView.vue";
+import OrganizerFormView from "@/views/OrganizerFormView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,14 +29,24 @@ const router = createRouter({
       })
     },
     {
+      path: '/add-event',
+      name: 'addEvent',
+      component: EventFormView
+    },
+    {
       path: '/about',
       name: 'about',
       component: AboutView
     },
     {
-      path: '/category',
-      name: 'category',
+      path: '/organizer',
+      name: 'organizer',
       component: CategoryView
+    },
+    {
+      path: '/add-organizer',
+      name: 'addOrganizer',
+      component: OrganizerFormView
     },
     {
       path: '/student',

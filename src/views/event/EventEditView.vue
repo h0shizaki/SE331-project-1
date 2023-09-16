@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type {EventItem} from "@/type";
-import {useMassageStore} from "@/stores/message";
+import {useMessageStore} from "@/stores/message";
 import {useRouter} from "vue-router";
 import {useEventStore} from "@/stores/event";
 import {storeToRefs} from "pinia";
@@ -11,7 +11,7 @@ const event = storeToRefs(eventStore).event
 const id = event.value?.id
 
 const router = useRouter()
-const store = useMassageStore()
+const store = useMessageStore()
 
 function edit() {
   store.updateMessage('You are successfully updated ' + event.value?.title)

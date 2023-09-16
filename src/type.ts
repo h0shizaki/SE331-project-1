@@ -10,6 +10,12 @@ export interface EventItem {
     organizer: string ;
 }
 
+export interface OrganzierItem {
+    id: number;
+    organizationName: string;
+    address: string;
+}
+
 export interface StudentItem {
     id: number;
     studentId: string;
