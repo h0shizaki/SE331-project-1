@@ -1,6 +1,6 @@
 // @ts-ignore
 import axios, {AxiosInstance, AxiosResponse} from 'axios'
-import type {EventItem, OrganzierItem} from "@/type";
+import type {EventItem, OrganizerItem} from "@/type";
 
 
 const apiClient: AxiosInstance = axios.create({
@@ -23,12 +23,4 @@ const saveEvent = (event: EventItem): Promise<AxiosResponse<EventItem>> => {
     return apiClient.post<EventItem>('/events', event)
 }
 
-const getOrganizers = () : Promise<AxiosResponse<OrganzierItem[]>> => {
-    return apiClient.get<OrganzierItem[]>(`/organizers`);
-}
-
-const saveOrganizers = (org : OrganzierItem): Promise<AxiosResponse<OrganzierItem>> => {
-    return apiClient.post<OrganzierItem>('/organizers' , org)
-}
-
-export default {getEvent, getEventById, getOrganizers, saveEvent, saveOrganizers}
+export default {getEvent, getEventById, saveEvent}

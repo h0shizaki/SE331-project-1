@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type {OrganzierItem} from "@/type";
+import type {OrganizerItem} from "@/type";
 import type {PropType} from "vue";
 
 const props = defineProps({
   organizer: {
-    type: Object as PropType<OrganzierItem>,
+    type: Object as PropType<OrganizerItem>,
     required: true
   }
 })

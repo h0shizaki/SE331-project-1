@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import OrganizerCard from "@/components/OrganizerCard.vue";
 import {ref} from "vue";
-import type {OrganzierItem} from "@/type";
-import EventService from "@/services/EventService";
+import type {OrganizerItem} from "@/type";
+import OrganizerService from "@/services/OrganizerService";
 
-const organizers = ref<Array<OrganzierItem>>([])
+const organizers = ref<Array<OrganizerItem>>([])
 
-EventService.getOrganizers()
+OrganizerService.getOrganizers()
     .then(
         (res) => {
-          organizers.value = res.data as OrganzierItem[]
+          organizers.value = res.data as OrganizerItem[]
         }
     )
 </script>

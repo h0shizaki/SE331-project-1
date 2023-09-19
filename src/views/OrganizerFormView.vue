@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
 import {ref} from "vue";
-import type {EventItem, OrganzierItem} from "@/type";
+import type {EventItem, OrganizerItem} from "@/type";
 import '@/assets/form.css';
-import EventService from "@/services/EventService";
 import {useRouter} from "vue-router";
 import {useMessageStore} from "@/stores/message";
-const org = ref<OrganzierItem>({
+import OrganizerService from "@/services/OrganizerService";
+const org = ref<OrganizerItem>({
   id: 0,
   organizationName: '',
   address: ''
@@ -15,7 +15,7 @@ const org = ref<OrganzierItem>({
 const store = useMessageStore()
 const router = useRouter()
 const saveOrg = () => {
-  EventService.saveOrganizers(org.value)
+  OrganizerService.saveOrganizers(org.value)
       .then( res => {
         console.log(res.data)
         router.push({

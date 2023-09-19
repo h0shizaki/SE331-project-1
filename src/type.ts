@@ -7,10 +7,10 @@ export interface EventItem {
     date: string;
     time: string;
     petsAllowed: boolean;
-    organizer: string ;
+    organizer: OrganizerItem ;
 }
 
-export interface OrganzierItem {
+export interface OrganizerItem {
     id: number;
     organizationName: string;
     address: string;
