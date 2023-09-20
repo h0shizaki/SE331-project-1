@@ -11,8 +11,12 @@ const apiClient: AxiosInstance = axios.create({
         'Content-Type': 'application/json'
     }
 })
-const getEvent = (perPage: number = 2 , page: number = 1): Promise<AxiosResponse<EventItem[]>> => {
+const getEvent = (perPage: number = 3 , page: number = 1): Promise<AxiosResponse<EventItem[]>> => {
     return apiClient.get<EventItem[]>(`/events?_limit=${perPage}&_page=${page}`);
+}
+
+const getEventsByKeyword = (keyword: string, perPage: number = 3 , page: number = 1): Promise<AxiosResponse<EventItem[]>> => {
+    return apiClient.get<EventItem[]>(`/events?_limit=${perPage}&_page=${page}&title=${keyword}`);
 }
 
 const getEventById = (id: number): Promise<AxiosResponse<EventItem>> => {
@@ -23,4 +27,4 @@ const saveEvent = (event: EventItem): Promise<AxiosResponse<EventItem>> => {
     return apiClient.post<EventItem>('/events', event)
 }
 
-export default {getEvent, getEventById, saveEvent}
+export default {getEvent, getEventById,getEventsByKeyword, saveEvent}

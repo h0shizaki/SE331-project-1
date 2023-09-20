@@ -9,6 +9,7 @@ import {useMessageStore} from "@/stores/message";
 import OrganizerService from "@/services/OrganizerService";
 
 const event = ref<EventItem>({
+  petsAllowed: false,
   id: 0,
   category: '',
   title: '',
@@ -58,7 +59,7 @@ OrganizerService.getOrganizers()
 
 <template>
   <div>
-    <h1>Create Event</h1>
+    <h1 class="text-4xl font-extrabold mb-4">Create Event</h1>
     <form @submit.prevent="saveEvent">
       <label>Category</label>
       <input
@@ -66,6 +67,7 @@ OrganizerService.getOrganizers()
           type="text"
           placeholder="Category"
           class="field"
+          required
       >
       <h3>Name & describe your event</h3>
       <label>Title</label>
@@ -74,6 +76,7 @@ OrganizerService.getOrganizers()
           type="text"
           placeholder="Title"
           class="field"
+          required
       >
       <label>Description</label>
       <input
@@ -81,11 +84,12 @@ OrganizerService.getOrganizers()
           type="text"
           placeholder="Description"
           class="field"
+          required
       >
       <label>What is the event date</label>
-      <input type="date" v-model="event.date">
+      <input type="date" v-model="event.date" required>
       <label>When does it start</label>
-      <input type="text" v-model="event.time">
+      <input type="text" v-model="event.time" required>
 
       <h3>Where is your event</h3>
       <label>Location</label>
@@ -94,11 +98,12 @@ OrganizerService.getOrganizers()
           type="text"
           placeholder="Location"
           class="field"
+          required
       >
 
       <h3>Who is the event organizer</h3>
       <label>Select organizer</label>
-      <select v-model="event.organizer.id">
+      <select v-model="event.organizer.id" required>
         <option v-for="option in organizers"
                 :value="option.id"
                 :key="option.id"
@@ -108,7 +113,10 @@ OrganizerService.getOrganizers()
         </option>
       </select>
 
-      <button type="submit">Submit</button>
+      <label>Does pet allowed</label>
+      <input style=""  type="checkbox" v-model="event.petsAllowed" />
+
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
     </form>
     <pre>{{ event }}</pre>
   </div>
