@@ -8,12 +8,14 @@ export interface EventItem {
     time: string;
     petsAllowed: boolean;
     organizer: OrganizerItem ;
+    images: string[];
 }
 
 export interface OrganizerItem {
     id: number;
     organizationName: string;
     address: string;
+    images: string[];
 }
 
 export interface StudentItem {

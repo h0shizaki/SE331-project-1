@@ -7,8 +7,10 @@ import EventService from "@/services/EventService";
 import {useRouter} from "vue-router";
 import {useMessageStore} from "@/stores/message";
 import OrganizerService from "@/services/OrganizerService";
+import ImageUpload from "@/components/ImageUpload.vue";
 
 const event = ref<EventItem>({
+  images: [],
   petsAllowed: false,
   id: 0,
   category: '',
@@ -20,13 +22,14 @@ const event = ref<EventItem>({
   organizer: {
     id: 0,
     organizationName: '',
-    address: ''
+    address: '',
+    images: []
   }
 })
 const store = useMessageStore()
 const router = useRouter()
 const saveEvent = () => {
-  EventService.saveEvent(event.value)
+  EventService.saveEvent(event.value as EventItem)
       .then(res => {
         console.log(res.data)
         router.push({
@@ -114,7 +117,10 @@ OrganizerService.getOrganizers()
       </select>
 
       <label>Does pet allowed</label>
-      <input style=""  type="checkbox" v-model="event.petsAllowed" />
+      <input style="" type="checkbox" v-model="event.petsAllowed"/>
+
+      <h3>The image of the event</h3>
+      <ImageUpload v-model="event.images"/>
 
       <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
     </form>

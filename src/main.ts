@@ -6,6 +6,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import 'nprogress/nprogress.css'
+import '@/services/AxiosInceptorSetup'
 
 const app = createApp(App)
 

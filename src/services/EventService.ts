@@ -2,15 +2,7 @@
 import axios, {AxiosInstance, AxiosResponse} from 'axios'
 import type {EventItem, OrganizerItem} from "@/type";
 
-
-const apiClient: AxiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL,
-    withCredentials: false,
-    headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-    }
-})
+import apiClient from "@/services/AxiosClient";
 const getEvent = (perPage: number = 3 , page: number = 1): Promise<AxiosResponse<EventItem[]>> => {
     return apiClient.get<EventItem[]>(`/events?_limit=${perPage}&_page=${page}`);
 }

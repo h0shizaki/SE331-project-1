@@ -6,10 +6,12 @@ import '@/assets/form.css';
 import {useRouter} from "vue-router";
 import {useMessageStore} from "@/stores/message";
 import OrganizerService from "@/services/OrganizerService";
+import ImageUpload from "@/components/ImageUpload.vue";
 const org = ref<OrganizerItem>({
   id: 0,
   organizationName: '',
-  address: ''
+  address: '',
+  images: []
 })
 
 const store = useMessageStore()
@@ -53,6 +55,8 @@ const saveOrg = () => {
           placeholder="Address"
           class="field"
       >
+      <ImageUpload v-model="org.images" :max="1" />
+
       <button type="submit">Submit</button>
     </form>
     <pre>{{ org }}</pre>
