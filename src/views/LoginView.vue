@@ -28,7 +28,7 @@ const {value: password} = useField<string>('password')
 const router = useRouter()
 const messageStore = useMessageStore()
 const onSubmit = handleSubmit((values) => {
-  console.log(values)
+  // console.log(values)
   authStore.login(values.email, values.password)
       .then( () => {
         console.log("Login Success")

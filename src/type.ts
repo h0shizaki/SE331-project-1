@@ -16,6 +16,7 @@ export interface OrganizerItem {
     organizationName: string;
     address: string;
     images: string[];
+    roles: string[];
 }
 
 export interface StudentItem {
