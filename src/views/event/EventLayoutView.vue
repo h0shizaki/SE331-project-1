@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import {ref} from "vue";
-import type {EventItem} from "@/type";
-import EventService from "@/services/EventService";
-import {useRouter} from "vue-router";
-import {useEventStore} from "@/stores/event";
-import {storeToRefs} from "pinia";
-
-const router = useRouter()
+import { useEventStore } from '@/stores/event'
+import { storeToRefs } from 'pinia'
 
 const store = useEventStore()
 const event = storeToRefs(store).event
@@ -16,13 +10,13 @@ const id = event.value?.id
 
 <template>
   <div v-if="event">
-    <h1 class="font-bold text-green-700 m-5 text-2xl">{{event.title}}</h1>
+    <h1 class="font-bold text-green-700 m-5 text-2xl">{{ event.title }}</h1>
     <div id="nav" class="p-3 font-bold text-green-300">
-      <router-link :to="{name: 'eventDetail' , params: {id} }">Details</router-link> |
-      <router-link :to="{name: 'eventRegister' , params: {id} }">Register</router-link> |
-      <router-link :to="{name: 'eventEdit' , params: {id} }">Edit</router-link>
+      <router-link :to="{ name: 'eventDetail', params: { id } }">Details</router-link> |
+      <router-link :to="{ name: 'eventRegister', params: { id } }">Register</router-link> |
+      <router-link :to="{ name: 'eventEdit', params: { id } }">Edit</router-link>
     </div>
-    <RouterView :event="event" ></RouterView>
+    <RouterView :event="event"></RouterView>
   </div>
 </template>
 

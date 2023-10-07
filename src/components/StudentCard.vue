@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type {PropType} from "vue";
-import type {StudentItem} from "@/type";
-
+import type { PropType } from 'vue'
+import type { StudentItem } from '@/type'
 
 const props = defineProps({
   student: {
@@ -12,12 +11,17 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="block cursor-pointer border border-green-800 bg-white rounded rounded-l mb-3 w-64 h-24 hover:border-green-500 hover:bg-gray-100 drop-shadow-lg" >
+  <div
+    class="block cursor-pointer border border-green-800 bg-white rounded rounded-l mb-3 w-64 h-24 hover:border-green-500 hover:bg-gray-100 drop-shadow-lg"
+  >
     <div class="mb-2 font-bold p-3 font-bold tracking-tight">
       <span>
-        <span class="font-bold text-green-500 uppercase">{{ props.student.name }}  {{ props.student.surname }}</span>
+        <span class="font-bold text-green-500 uppercase"
+          >{{ props.student.name }} {{ props.student.surname }}</span
+        >
       </span>
-      <br><hr>
+      <br />
+      <hr />
       <span>
         <b class="text-green-700">GPA: </b>
         <span class="font-bold text-green-500 uppercase">{{ props.student.gpa }}</span>
@@ -27,7 +31,6 @@ const props = defineProps({
 </template>
 
 <style scoped>
-
 .text-title {
   opacity: 0.75;
 }

@@ -8,11 +8,9 @@ defineProps({
 </script>
 
 <template>
-<p aria-live="assertive" class="errorMessage" :id="id">
-  <slot />
-</p>
+  <p aria-live="assertive" class="errorMessage" :id="id">
+    <slot />
+  </p>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

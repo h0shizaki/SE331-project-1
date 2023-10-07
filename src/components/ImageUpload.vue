@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Uploader from 'vue-media-upload';
-import {ref} from "vue";
+import Uploader from 'vue-media-upload'
+import { ref } from 'vue'
 
-interface  Props {
-  modelValue? : string[]
+interface Props {
+  modelValue?: string[]
   max?: number
 }
 
@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const convertStringToMedia = (str: string[]): any => {
-  return str.map( (element: string) => {
+  return str.map((element: string) => {
     return {
       name: element
     }
@@ -20,9 +20,9 @@ const convertStringToMedia = (str: string[]): any => {
 }
 
 const emit = defineEmits(['update:modelValue'])
-const convertMediaToString = (media: any) : string[] => {
-  const output :string[] = []
-  media.forEach( (element: any) => {
+const convertMediaToString = (media: any): string[] => {
+  const output: string[] = []
+  media.forEach((element: any) => {
     output.push(element.name)
   })
   return output
@@ -36,9 +36,7 @@ const onChange = (files: any) => {
 </script>
 
 <template>
-  <Uploader  :server="uploadUrl" @change="onChange" :media="media" :max="max"/>
+  <Uploader :server="uploadUrl" @change="onChange" :media="media" :max="max" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

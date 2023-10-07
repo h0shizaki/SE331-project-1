@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import {useRouter} from "vue-router";
-import {useMessageStore} from "@/stores/message";
-import {useAuthStore} from "@/stores/auth";
-import * as yup from "yup";
-import {useField, useForm} from "vee-validate";
-import InputText from "@/components/InputText.vue";
+import { useRouter } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
+import { useAuthStore } from '@/stores/auth'
+import * as yup from 'yup'
+import { useField, useForm } from 'vee-validate'
+import InputText from '@/components/InputText.vue'
 
 const router = useRouter()
-const authStore = useAuthStore();
+const authStore = useAuthStore()
 const messageStore = useMessageStore()
-
 
 const validationSchema = yup.object({
   username: yup.string().required('The email is required'),
@@ -19,7 +18,7 @@ const validationSchema = yup.object({
   email: yup.string().required('The email is required').email()
 })
 
-const {errors, handleSubmit} = useForm({
+const { errors, handleSubmit } = useForm({
   validationSchema,
   initialValues: {
     username: '',
@@ -30,29 +29,29 @@ const {errors, handleSubmit} = useForm({
   }
 })
 
-
-const {value: email} = useField<string>('email')
-const {value: password} = useField<string>('password')
-const {value: firstname} = useField<string>('firstname')
-const {value: lastname} = useField<string>('lastname')
-const {value: username} = useField<string>('username')
+const { value: email } = useField<string>('email')
+const { value: password } = useField<string>('password')
+const { value: firstname } = useField<string>('firstname')
+const { value: lastname } = useField<string>('lastname')
+const { value: username } = useField<string>('username')
 
 const onSubmit = handleSubmit((values) => {
   console.log(values)
-  authStore.register(values.email, values.password, values.username, values.firstname, values.lastname)
-      .then(() => {
-        console.log("Register Success")
-        router.push({name: 'eventList'})
-      })
-      .catch((err) => {
-        messageStore.updateMessage('Could not login')
-        setTimeout(() => {
-          messageStore.resetMessage()
-        }, 3000)
-        // console.log('error', err)
-      })
+  authStore
+    .register(values.email, values.password, values.username, values.firstname, values.lastname)
+    .then(() => {
+      console.log('Register Success')
+      router.push({ name: 'eventList' })
+    })
+    .catch((err) => {
+      messageStore.updateMessage('Could not login')
+      console.log(err)
+      setTimeout(() => {
+        messageStore.resetMessage()
+      }, 3000)
+      // console.log('error', err)
+    })
 })
-
 </script>
 
 <template>
@@ -79,16 +78,14 @@ const onSubmit = handleSubmit((values) => {
         <InputText type="password" v-model="password" :error="errors['password']"></InputText>
       </div>
 
-
-      <button type="submit"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
         Submit
       </button>
     </form>
   </div>
-
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
