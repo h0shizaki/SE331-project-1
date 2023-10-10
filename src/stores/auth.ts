@@ -78,6 +78,17 @@ export const useAuthStore = defineStore('auth', {
           lastname
         })
         .then((response) => {
+          this.token = response.data.access_token
+          console.log(response.data.user)
+          this.user = {
+            id: response.data.user.id,
+            organizationName: response.data.user.organizationName,
+            address: response.data.user.address,
+            images: response.data.user.images,
+            roles: response.data.user.roles
+          } as OrganizerItem
+          localStorage.setItem('access_token', this.token as string)
+          localStorage.setItem('user', JSON.stringify(this.user))
           return response
         })
     }

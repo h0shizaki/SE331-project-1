@@ -44,7 +44,7 @@ const onSubmit = handleSubmit((values) => {
       router.push({ name: 'eventList' })
     })
     .catch((err) => {
-      messageStore.updateMessage('Could not login')
+      messageStore.updateMessage('Could not register, maybe the current username was already used')
       console.log(err)
       setTimeout(() => {
         messageStore.resetMessage()
